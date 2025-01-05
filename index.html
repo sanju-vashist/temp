@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kuch to h he</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="dark-theme">
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-card">
+                <div class="avatar-container">
+                    <img src="images/logo.png" alt="Profile Picture" class="avatar">
+                </div>
+                <div class="profile-info">
+                    <h1>sanju sharma </h1>
+                    <p class="job-title">app developer</p>
+                </div>
+
+                <!-- ye dubara phone khater h  -->
+                <div class="mobile-header">
+                    <div class="mobile-avatar">
+                        <img src="images/logo.pngs" alt="Profile Picture">
+                    </div>
+                    <div class="mobile-info">
+                        <h1>sanju sharma </h1>
+                        <p class="job-title">app developer</p>
+                    </div>
+                </div>
+
+                <button class="show-contacts">Show Contacts</button>
+
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span class="label">EMAIL</span>
+                        <div class="value">
+                            <i class="fas fa-envelope"></i>
+                            ghanta@gmail.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="label">PHONE</span>
+                        <div class="value">
+                            <i class="fas fa-phone"></i>
+                            +91 85720-69441
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="label">BIRTHDAY</span>
+                        <div class="value">
+                            <i class="fas fa-calendar"></i>
+                            June 13, 3005
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="label">LOCATION</span>
+                        <div class="value">
+                            <i class="fas fa-location-dot"></i>
+                            gurugram, Haryana , Bharat
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="#about" class="active">About</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#portfolio">Project</a></li>
+                    <li><a href="#education">Experince</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </nav>
+
+            <section id="about">
+                <h2>About Me</h2>
+                <div class="section-content">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate est reiciendis eaque
+                        accusamus, quis error itaque ullam quidem ducimus doloremque reprehenderit beatae saepe hic
+                        dolor? Fuga animi omnis quaerat obcaecati iure molestias minima.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel esse voluptas debitis
+                        necessitatibus soluta modi? Ullam, vel aut. Provident delectus ad excepturi repellat qui
+                        temporibus, enim veniam harum et fugiat eos dolores laudantium voluptas unde velit quod ratione
+                        aliquam libero voluptate consectetur dolorem. Quia eveniet eos eum impedit veritatis tenetur
+                        optio ut ad enim facilis!</p>
+                </div>
+
+                <h2>what i am doing </h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cloud gold-icon"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>cloud </h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, rem.</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-code gold-icon"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>app Development</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, asperiores!.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="portfolio">
+                <h2>Project</h2>
+                <div class="portfolio-filters">
+                    <button class="portfolio-filter active">All</button>
+                    <button class="portfolio-filter">Web design</button>
+                    <button class="portfolio-filter">Applications</button>
+                    <button class="portfolio-filter">Web development</button>
+                </div>
+
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="images/dowery.png" alt="Finance" class="portfolio-image">
+                        <div class="portfolio-content">
+                            <div class="portfolio-category">Web development</div>
+                            <h3 class="portfolio-title">Finance</h3>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <img src="images/dowery.png" alt="Orizon" class="portfolio-image">
+                        <div class="portfolio-content">
+                            <div class="portfolio-category">Web development</div>
+                            <h3 class="portfolio-title">Orizon</h3>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <img src="images/dowery.png" alt="Fundo" class="portfolio-image">
+                        <div class="portfolio-content">
+                            <div class="portfolio-category">Web design</div>
+                            <h3 class="portfolio-title">Fundo</h3>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <img src="images/dowery.png" alt="MetaSpark" class="portfolio-image">
+                        <div class="portfolio-content">
+                            <div class="portfolio-category">Web design</div>
+                            <h3 class="portfolio-title">MetaSpark</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="education">
+                <h2>Experince </h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-period">2007 — 2008</div>
+                        <h3 class="timeline-title">juti chapal school </h3>
+                        <p class="timeline-description">Nemo enims ipsam voluptatem, blanditiis praesentium voluptum
+                            delenit atque corrupti, quos dolores et quas molestias exceptur.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-period">2006 — 2007</div>
+                        <h3 class="timeline-title">chapal juti school</h3>
+                        <p class="timeline-description">Ratione voluptatem sequi nesciunt, facere quisquams facere menda
+                            ossimus, omnis voluptas assumenda est omnis..</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-period">2002 — 2004</div>
+                        <h3 class="timeline-title">b tech</h3>
+                        <p class="timeline-description">Duis aute irure dolor in reprehenderit in voluptate, quila
+                            voluptas mag odit aut fugit, sed consequuntur magni dolores eos.</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="technical-skills">
+                <h2>Technical Skills</h2>
+                <div class="services-grid">
+                  <div class="service-card">
+                    <div class="service-icon">
+                      <i class="fas fa-code gold-icon"></i>
+                    </div>
+                    <div class="service-content">
+                      <h3>Backend Development</h3>
+                      <p>Python, Node.js, Express, Django, RESTful APIs, Microservices</p>
+                    </div>
+                  </div>
+                  <div class="service-card">
+                    <div class="service-icon">
+                      <i class="fas fa-mobile-alt gold-icon"></i>
+                    </div>
+                    <div class="service-content">
+                      <h3>App Development</h3>
+                      <p>React Native, Flutter, iOS/Android Development, Cross-platform Solutions</p>
+                    </div>
+                  </div>
+                  <div class="service-card">
+                    <div class="service-icon">
+                      <i class="fas fa-database gold-icon"></i>
+                    </div>
+                    <div class="service-content">
+                      <h3>Database Management</h3>
+                      <p>MySQL, MongoDB, PostgreSQL, Redis, Database Design & Optimization</p>
+                    </div>
+                  </div>
+                  <div class="service-card">
+                    <div class="service-icon">
+                      <i class="fas fa-cloud gold-icon"></i>
+                    </div>
+                    <div class="service-content">
+                      <h3>Cloud Services</h3>
+                      <p>AWS, Azure, Docker, Kubernetes, CI/CD, Cloud Architecture</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+            <section class="get-in-touch">
+                <h2>Get in Touch</h2>
+                <p>If you have any questions, ideas, or just want to say hi, feel free to reach out!</p>
+                <blockquote>"Connecting is the beginning of every great story."</blockquote>
+                <div class="social-links">
+                  <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                  <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                  <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                </div>
+              </section>
+              
+
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
