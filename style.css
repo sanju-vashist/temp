@@ -11,12 +11,12 @@
 
 /* Light theme variables */
 [data-theme="light"] {
-  --dark-bg: #c0a9a9;
-  --darker-bg: #e2d0d0;
-  --card-bg: #ceaeae;
+  --dark-bg: #d9d5d5;
+  --darker-bg: #ffffff;
+  --card-bg: #878383;
   --text-primary: #333333;
-  --text-secondary: #ecd8d8;
-  --accent-gold: #ffd700;
+  --text-secondary: #232121;
+  --accent-gold: #181716;
 }
 
 /* Theme toggle button styles  */
@@ -66,6 +66,11 @@ body {
   display: flex;
   min-height: 100vh;
   position: relative;
+  /* overflow: hidden; */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Sidebar Styles */
@@ -78,6 +83,7 @@ body {
   height: 100vh;
   overflow-y: auto;
   scroll-behavior: smooth;
+  flex-shrink: 0;
 
   &::-webkit-scrollbar {
     display: none;
@@ -170,6 +176,8 @@ body {
   flex: 1;
   padding: 2rem;
   /* overflow-y: auto; */
+  max-width: calc(100% - 350px);
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -341,10 +349,6 @@ h2::after {
 }
 
 
-
-
-
-/* Animated background with gradient dots */
 .get-in-touch {
   position: relative;
   padding: 4rem 2rem;
