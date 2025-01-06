@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
             gsap.to(card, {
                 duration: 0.3,
                 scale: 1.03,
-                backgroundColor: 'rgba(36, 36, 36, 0.9)'
+                backgroundColor: 'rgba(145, 136, 136, 0.9)'
             });
             gsap.to(card.querySelector('.gold-icon'), {
                 duration: 0.3,

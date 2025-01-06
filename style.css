@@ -11,12 +11,12 @@
 
 /* Light theme variables */
 [data-theme="light"] {
-  --dark-bg: #c0a9a9;
-  --darker-bg: #e2d0d0;
-  --card-bg: #ceaeae;
-  --text-primary: #333333;
-  --text-secondary: #ecd8d8;
-  --accent-gold: #ffd700;
+  --dark-bg: #f5f5f5; 
+  --darker-bg: #ffffff; 
+  --card-bg: #eaeaea;
+  --text-primary: #333333; 
+  --text-secondary: #666666; 
+  --accent-gold: #1d1d1c; 
 }
 
 /* Theme toggle button styles  */
@@ -342,10 +342,6 @@ h2::after {
 }
 
 
-
-
-
-/* Animated background with gradient dots */
 .get-in-touch {
   position: relative;
   padding: 4rem 2rem;
