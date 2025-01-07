@@ -195,3 +195,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // First ensure each section has the correct ID
+    const sections = {
+        'about': document.querySelector('#about'),
+        'services-grid': document.querySelector('#services-grid'),
+        'project': document.querySelector('#project'),
+        'experince': document.querySelector('#experince'),
+        'technical-skills': document.querySelector('#technical-skills'),
+        'get-in-touch': document.querySelector('.get-in-touch')
+    };
+    
+    // Set IDs if missing
+    Object.entries(sections).forEach(([id, element]) => {
+        if (element && !element.id) {
+            element.id = id;
+        }
+    });
+
+    // Add click handlers to nav links
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get target section from href
+            const targetId = this.getAttribute('href').replace('#', '');
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                // Remove active class from all links
+                navLinks.forEach(link => link.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Scroll to section
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+});

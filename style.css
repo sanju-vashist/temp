@@ -47,6 +47,22 @@
 .theme-toggle:hover i {
   color: var(--darker-bg);
 }
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll-top {
+  opacity: 0.7;
+}
+
+.scroll-top:hover {
+  opacity: 1;
+}
+
+/* Add smooth transition for active link color change */
+.nav-links a {
+  transition: color 0.3s ease;
+}
 
 
 * {
