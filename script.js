@@ -240,3 +240,207 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+// Main JavaScript code
+const queryKnowledgeBase = async (userQuery, knowledgeBase) => {
+    try {
+        if (!config || !config.API_KEY) {
+            throw new Error('API key not configured');
+        }
+
+        const API_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
+        
+        const response = await fetch(`${API_ENDPOINT}?key=${config.API_KEY}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                contents: [{
+                    parts: [{
+                        text: `Context: "${knowledgeBase}" 
+                               Question: "${userQuery}"
+                               Please provide a brief, 2-3 line response.`
+                    }]
+                }]
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('API request failed');
+        }
+
+        const data = await response.json();
+        return data.candidates[0].content.parts[0].text;
+    } catch (error) {
+        console.error('Error querying knowledge base:', error);
+        return 'Sorry, I encountered an error processing your request.';
+    }
+};
+
+class VoiceAssistant {
+    constructor() {
+        this.micButton = document.getElementById('micButton');
+        this.stopButton = document.getElementById('stopButton');
+        this.transcriptDiv = document.getElementById('transcript');
+        this.responseDiv = document.getElementById('response');
+        this.overlay = document.getElementById('overlay');
+        this.popup = document.getElementById('popup');
+        this.isListening = false;
+        this.recognition = null;
+        this.synthesis = window.speechSynthesis;
+
+        this.knowledgeBase = 
+    "I am Sanju, a 2nd-year BTech Computer Engineering student at Maharishi Markandeshwar University (MMU), Mullana, Ambala. " +
+    "I am a frontend web developer and a  app developer with strong skills in Flutter, Python, Firebase, Supabase, ReactNative, FastAPI,django and web development basics. " +
+    "I often contribute to projects on GitHub and am passionate about creating innovative and unconventional solutions." +
+    "\n\n" +
+    "Skills: " +
+    "1. Flutter Development - Building cross-platform apps with responsive designs and robust functionality. " +
+    "2. Python - Backend scripting, APIs, and basic data analysis. " +
+    "3. Firebase - Database integration, user authentication, and real-time data handling. " +
+    "4. Web Development - Proficient in HTML, CSS, and JavaScript for designing dynamic websites. " +
+    "5. GitHub - Regular contributions to repositories, version control, and collaboration." +
+    "\n\n" +
+    "Projects: " +
+    "1. Saanjavni: A comprehensive medical information app with biometric registration, family medical history, emergency access, and monetization features. Created using Flutter and Firebase. " +
+    "2. Lafda: An anonymous chatting app that allows users to interact in group chats and share thoughts freely. " +
+    "2. Dowry Calculator: A fun app that calculates a hypothetical dowry amount based on user qualifications. " +
+    "4. The Normal app: A simple app that steals your data and sends it to server without even knowing and its aim is to educate how easy is to steal your data and how chiness app may do it.created using react native and supbase "
+    "\n\n" +
+    "Achievements: " +
+   
+    "\n\n" +
+    "I am highly motivated to explore diverse fields such as app development, data science, and artificial intelligence. " +
+    "I enjoy coding, experimenting with new technologies, and bringing creative ideas to life."
+
+
+        this.initializeSpeechRecognition();
+        this.setupEventListeners();
+    }
+
+    initializeSpeechRecognition() {
+        if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            this.recognition = new SpeechRecognition();
+            this.recognition.continuous = true;
+            this.recognition.interimResults = true;
+            this.recognition.lang = 'en-US';
+
+            this.recognition.onresult = (event) => {
+                const current = event.resultIndex;
+                const transcript = event.results[current][0].transcript;
+                this.transcriptDiv.textContent = `You said: ${transcript}`;
+
+                if (event.results[current].isFinal) {
+                    this.processQuery(transcript);
+                }
+            };
+
+            this.recognition.onend = () => {
+                this.stopListening();
+            };
+
+            this.recognition.onerror = (event) => {
+                console.error('Speech recognition error:', event.error);
+                this.responseDiv.textContent = 'Error: ' + event.error;
+                this.stopListening();
+            };
+        } else {
+            this.micButton.disabled = true;
+            alert('Speech recognition is not supported in your browser.');
+        }
+    }
+
+    setupEventListeners() {
+        this.micButton.addEventListener('click', () => {
+            if (this.isListening) {
+                this.stopListening();
+            } else {
+                this.startListening();
+            }
+        });
+
+        this.stopButton.addEventListener('click', () => {
+            this.stopListening();
+            this.hidePopup();
+            this.synthesis.cancel();
+        });
+
+        this.overlay.addEventListener('click', () => {
+            this.hidePopup();
+        });
+    }
+
+    startListening() {
+        if (this.recognition) {
+            try {
+                this.recognition.start();
+                this.isListening = true;
+                this.micButton.classList.add('listening');
+                this.transcriptDiv.textContent = 'Listening...';
+                this.showPopup();
+            } catch (error) {
+                console.error('Error starting recognition:', error);
+            }
+        }
+    }
+
+    stopListening() {
+        if (this.recognition) {
+            try {
+                this.recognition.stop();
+                this.isListening = false;
+                this.micButton.classList.remove('listening');
+            } catch (error) {
+                console.error('Error stopping recognition:', error);
+            }
+        }
+    }
+
+    showPopup() {
+        this.overlay.style.display = 'block';
+        this.popup.style.display = 'block';
+    }
+
+    hidePopup() {
+        this.overlay.style.display = 'none';
+        this.popup.style.display = 'none';
+    }
+
+    speak(text) {
+        if (!text) return;
+        
+        this.synthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        
+        // Wait for voices to be loaded
+        if (speechSynthesis.getVoices().length === 0) {
+            speechSynthesis.addEventListener('voiceschanged', () => {
+                const voices = speechSynthesis.getVoices();
+                utterance.voice = voices.find(voice => voice.lang === 'en-US') || voices[0];
+                this.synthesis.speak(utterance);
+            });
+        } else {
+            const voices = speechSynthesis.getVoices();
+            utterance.voice = voices.find(voice => voice.lang === 'en-US') || voices[0];
+            this.synthesis.speak(utterance);
+        }
+    }
+
+    async processQuery(query) {
+        try {
+            this.responseDiv.textContent = 'Processing...';
+            const response = await queryKnowledgeBase(query, this.knowledgeBase);
+            this.responseDiv.textContent = `Answer: ${response}`;
+            this.speak(response);
+        } catch (error) {
+            console.error('Error processing query:', error);
+            this.responseDiv.textContent = 'Sorry, there was an error processing your request.';
+        }
+    }
+}
+
+// Initialize the voice assistant when the document is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new VoiceAssistant();
+});
