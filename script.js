@@ -300,16 +300,16 @@ class VoiceAssistant {
     "3. Firebase - Database integration, user authentication, and real-time data handling. " +
     "4. Web Development - Proficient in HTML, CSS, and JavaScript for designing dynamic websites. " +
     "5. GitHub - Regular contributions to repositories, version control, and collaboration." +
-    "\n\n" +
-    "Projects: " +
-    "1. Saanjavni: A comprehensive medical information app with biometric registration, family medical history, emergency access, and monetization features. Created using Flutter and Firebase. " +
-    "2. Lafda: An anonymous chatting app that allows users to interact in group chats and share thoughts freely. " +
-    "2. Dowry Calculator: A fun app that calculates a hypothetical dowry amount based on user qualifications. " +
-    "4. The Normal app: A simple app that steals your data and sends it to server without even knowing and its aim is to educate how easy is to steal your data and how chiness app may do it.created using react native and supbase "
-    "\n\n" +
-    "Achievements: " +
+    // "\n\n" +
+    // "Projects: " +
+    // "1. Saanjavni: A comprehensive medical information app with biometric registration, family medical history, emergency access, and monetization features. Created using Flutter and Firebase. " +
+    // "2. Lafda: An anonymous chatting app that allows users to interact in group chats and share thoughts freely. " +
+    // "2. Dowry Calculator: A fun app that calculates a hypothetical dowry amount based on user qualifications. " +
+    // "4. The Normal app: A simple app that steals your data and sends it to server without even knowing and its aim is to educate how easy is to steal your data and how chiness app may do it.created using react native and supbase "
+    // "\n\n" +
+    // "Achievements: " +
    
-    "\n\n" +
+    // "\n\n" +
     "I am highly motivated to explore diverse fields such as app development, data science, and artificial intelligence. " +
     "I enjoy coding, experimenting with new technologies, and bringing creative ideas to life."
 
